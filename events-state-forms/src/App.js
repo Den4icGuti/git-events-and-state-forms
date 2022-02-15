@@ -1,12 +1,13 @@
-import MyClassComponent from "./Components/Counter";
+// import Counter from "./Components/Counter";
+import Dropdown from "./Components/Dropdown/Dropdown";
 
 function App() {
   return (
     <>
-      <MyClassComponent onClick={console.log('wqdwqd')}/>
-    {/* <button onClick={event => console.log(event)}>Click me!</button> */}
+     
+       <Dropdown/>
     </>
-   
+ 
   );
 }
 

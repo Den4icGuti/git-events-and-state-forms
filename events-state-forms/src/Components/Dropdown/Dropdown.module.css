@@ -1,0 +1,37 @@
+ul {
+  list-style: none;
+}
+h2 {
+  padding: 0;
+  margin: 0;
+}
+.showMenu {
+  width: 400px;
+  height: auto;
+  padding: 10px;
+  border: solid 1px rgb(60, 132, 190);
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn {
+  display: block;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+
+.dropdown {
+  width: 150px;
+  height: 150px;
+  padding: 15px;
+  background-color: rgb(69, 102, 209);
+  color: aliceblue;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h2 {
+  text-align: center;
+}
