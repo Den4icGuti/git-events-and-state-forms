@@ -22,6 +22,9 @@ code {
   width: 400px;
   border: solid 1px coral;
   height: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
 }
 
 .counter {

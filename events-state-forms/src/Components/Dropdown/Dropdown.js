@@ -19,7 +19,7 @@ class Dropdown extends Component {
   render() { 
     return (
       <div className={styles.showMenu}>
-         <h2>Состояни событие</h2>
+        
         <button
           className={styles.btn}
           type="button"

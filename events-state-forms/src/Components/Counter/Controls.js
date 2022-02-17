@@ -1,8 +1,7 @@
 import React from "react";
-import '../index.css'
+
 
 //===Функция подьема состояния===//
-
 
 // Controls получаеют функцию onIncrement,onDecrement (имена пропов),
 // которая вызывается при событии onClick

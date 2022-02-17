@@ -4,7 +4,7 @@ import React, { Component } from "react";
 //=== Импортируем Controls подьем состояня===//
 import Controls from "./Controls";
 import Value from "./Value";
-import '../index.css'
+// import '../index.css'
 
 class Counter extends Component {
 
