@@ -1,0 +1,20 @@
+.box {
+  width: 400px;
+  height: 200px;
+  border: solid 1px rgb(0, 0, 0);
+  padding: 15px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+
+.ColorPicker__option {
+  margin-left: 10px;
+  border: inherit;
+  cursor: pointer;
+  width: 60px;
+  height: 60px;
+  transition: transform 200ms linear;
+}
+.ColorPicker__option--active {
+  transform: scale(1.1);
+}

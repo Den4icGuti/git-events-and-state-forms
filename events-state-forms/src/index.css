@@ -41,3 +41,8 @@ code {
 .btn {
   margin-left: 20px;
 }
+
+.title__page {
+  text-align: center;
+  margin-top: 30px;
+}

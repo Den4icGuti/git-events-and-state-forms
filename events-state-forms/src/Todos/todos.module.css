@@ -1,0 +1,21 @@
+ul {
+  list-style: none;
+}
+
+.boxList {
+  width: 600px;
+
+  padding: 15px;
+  background-color: rgb(254, 254, 255);
+  color: rgb(0, 0, 0);
+  margin: 0 auto;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  width: 300px;
+  height: auto;
+  border: solid 1px rgb(8, 7, 8);
+  padding: 20px;
+}

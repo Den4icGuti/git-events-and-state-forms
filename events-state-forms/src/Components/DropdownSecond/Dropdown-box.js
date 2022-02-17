@@ -11,25 +11,19 @@ class Drop extends Component {
     }));
   };
 
-  // show = () => { 
-  //   this.setState({visibility:true})
-  // }
-
-  // hide = () => { 
-  //   this.setState({visibility:false})
-  // }
 
   render() { 
+    const { visibility } = this.state;
     return (
       <div className={styles.box__drop}>
         <button type="button"
           className={styles.btn}
           onClick={this.toggle}>
           {/* Перерендериваем состояние кнопки по условию  */}
-          {this.state.visibility ? 'Скрыть' : 'Показать'}
+          {visibility ? 'Скрыть' : 'Показать'}
         </button>
          {/* Рендерим меню по условию */}
-          {this.state.visibility && ( <div className={styles.menu}>Выпадающие меню</div>)}
+          {visibility && ( <div className={styles.menu}>Выпадающие меню</div>)}
       </div>
     )
   }
