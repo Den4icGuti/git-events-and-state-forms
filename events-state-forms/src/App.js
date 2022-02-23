@@ -29,18 +29,36 @@
 // }
 
 import React, { Component } from 'react';
-import initalTodos from './Todos/todos.json';
+import initialTodos from './Todos/todos.json';
 import TodoList from './Todos/TodoList';
+import TodoEditor from './Components/TodosEditor/TodosEditor';
+import Filter from './Components/Filter/Filter';
+import shortId from 'shortid';
+import './index.css'
 
 
 
-class App extends Component { 
+class App extends Component {
   state = {
-    todos:initalTodos,
+    todos: initialTodos,
+    filter: ''
   }
 
+
+  //===Метод добавления в TodoList новый Todo===//
+  addTodo = text => { 
+    console.log(text)
+    const todo = {
+      id: shortId.generate(),
+      text,
+      comleted: true
+    };
+    this.setState(({ todos }) => ({
+      todos: [todo,...todos],
+    }))
+  }
   //===Создаем метод удаления элемента по id===//
-  deleteElement = (id) => { 
+  deleteElement = (id) => {
     this.setState(prevState => ({
       //===Через метод фильтр находим id которые не равны друг другу, удаляем элемент===//
       todos: prevState.todos.filter(todo => todo.id !== id)
@@ -48,26 +66,81 @@ class App extends Component {
   }
 
 
-  render() { 
+  //===Фильтр уникальных элементов===//
+
+  toggleComleted = todoId => { 
+    console.log(todoId);
+    // this.setState(prevState => ({
+    //   todos: prevState.todos.map(todo => {
+    //     if (todo.id === todoId) { 
+    //       return {
+    //         ...todo,
+    //         comleted: !todo.comleted,
+    //       }
+    //     }
+    //     return todo;
+    //   })
+    // }))
+    this.setState(({ todos }) => ({
+      todos: todos.map(todo =>
+        todoId === todo.id ? {...todo,comleted: !todo.comleted} : todo)
+    }))
+  }
+  
+   //=== Метод фильтра изменяющий состояние свойства фильтр ==//
+  
+  onChangeFilter = e => { 
+    this.setState({ filter: e.currentTarget.value })
+  }
+
+  //===Метод поиска через фильтр===//
+  getVisibleTodo = () => { 
+    const { filter, todos } = this.state;
+    const normaLize = filter.toLowerCase();
+
+      return todos.filter(todo =>
+      todo.text.toLocaleLowerCase().includes(normaLize))
+  }
+
+  //===Метод который подсчитывает кол-во елемнтов===//
+  
+  calcCompleteTodo = () => { 
     const { todos } = this.state;
+    
+    return todos.reduce((acc, todos) => (todos.comleted ? acc + 1 : acc),0);
+  }
 
-    const totalTodos = todos.length;
-
-    const comletedTodo = todos.reduce((acc, todo) => (todo.comleted ? acc + 1 : acc),
-     0);
+  render() {
+    
+    const { filter } = this.state;
+    const comletedTodo = this.calcCompleteTodo();
+    const visibleTodos = this.getVisibleTodo();
     return (
      
       <>
         <h2>Состояние события</h2>
         <div>
-          <p>Общее кол-во элементов: {totalTodos}</p>
+          <p>Общее кол-во элементов: {comletedTodo}</p>
           <p>Кол-во выполненых: {comletedTodo}</p>
         </div>
-        <TodoList todos={todos} onDeleteTodo={this.deleteElement}/>
+
+        <Filter
+          value={filter}
+          onChange={this.onChangeFilter}
+        />
+
+        <TodoEditor onSubmit={this.addTodo}/>
+        <TodoList
+          todos={visibleTodos}
+        
+          onDeleteTodo={this.deleteElement}
+          onToggleComlited={this.toggleComleted}
+        />
+        
+        
       </>
-     
-    );
    
+    )
   }
 }
 

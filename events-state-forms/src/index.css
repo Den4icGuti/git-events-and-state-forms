@@ -46,3 +46,24 @@ code {
   text-align: center;
   margin-top: 30px;
 }
+
+.form {
+  width: 300px;
+  height: auto;
+  padding: 15px;
+  border: solid 1px cornflowerblue;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  padding-top: 5px;
+}
+
+.btn {
+  display: block;
+  margin: 0 auto;
+  margin-top: 15px;
+}

@@ -1,0 +1,13 @@
+.TodoEditor {
+  width: 250px;
+  height: 130px;
+  padding: 15px;
+  background-color: aliceblue;
+  margin: 0 auto;
+}
+
+.inputTextMessage {
+  resize: none;
+  width: 240px;
+  height: 100px;
+}
